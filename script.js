@@ -1,23 +1,20 @@
-
-const num = prompt("Enter a number");
-console.log(num);
-
-if(num < 0)
-{
-    console.log(`Error! Factorial for negative number does not exist.`); 
-}
-else if (num === 0)
-{
-    console.log(`The factorial of ${num} is 1`);
-}
-else
-{
-    let fact = 1;
-    for(i=1; i<=num ; i++)
-    {
-        fact *= i;
-    }
-    console.log(`The factorial of ${num} is ${fact}.`);
-}
+console.log("This is to check Event Bubbling")
 
 
+let eve1 = document.querySelector(".container");
+let eve2 = document.querySelector(".largebox");
+let eve3 = document.querySelector(".smallbox");
+
+eve1.addEventListener("click" , () => {
+    alert("Container is clicked")
+})
+
+eve2.addEventListener("click" , (e) => {
+    e.stopPropagation(); //to stop event bubbling
+    alert("Largebox is clicked")
+})
+
+eve3.addEventListener("click" , (e) => {
+    e.stopPropagation(); //to stop event bubbling
+    alert("Smallbox is clicked")
+})
